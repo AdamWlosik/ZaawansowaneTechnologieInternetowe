@@ -1,0 +1,10 @@
+<h3 [className]="zmienKolor">Wprowadzenie do Angulara</h3>
+<input [disabled]="isDisabled" (focus)="onFocus()">
+<br> 
+<input [disabled]="isDisabled" (click)="onClick($event)">
+<br> 
+<input [disabled]="isDisabled" (mousemove)="onMouseMove($event)">
+<br> 
+<input [disabled]="isDisabled" (paste)="onPaste()"> {{ inputText }}
+<br> 
+<button (click)="zmienUstawienia()">edytuj</button>

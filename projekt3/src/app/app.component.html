@@ -1,0 +1,19 @@
+<h3 [className]="zmienKolor">Wprowadzenie do Angulara</h3>
+<input [disabled]="isDisabled" (focus)="onFocus()">
+<br> 
+<input [disabled]="isDisabled" (click)="onClick($event)">
+<br> 
+<input [disabled]="isDisabled" (mousemove)="onMouseMove($event)">
+<br> 
+<input [disabled]="isDisabled" (paste)="onPaste()"> {{ inputText }}
+<br> 
+<button (click)="zmienUstawienia()">edytuj</button>
+<button (click)="zmiennBackground()">zminana koloru</button>
+
+<h3>Użycie ngModel</h3>
+<p>Imię ucznia to: {{ imie }}</p>
+<br> 
+<label for="student">imię: </label>
+<input [(ngModel)]="imie"> {{ imie }}
+
+

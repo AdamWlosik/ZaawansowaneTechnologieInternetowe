@@ -1,0 +1,127 @@
+<main>
+  <h4>Formularz TEMPLATE-DRIVEN</h4>
+  <form #osobaForm="ngForm"
+  (ngSubmit)="send()">
+  <div>
+  <label>Imię </label>
+  <input placeholder="Wprowadź imię"
+  id="imie"
+  type="text"
+  [(ngModel)]="osoba.imie"
+  name="imie"
+  [required]="true"
+  minlength="3"
+  #imie="ngModel"
+  (input)="imieChanged(imie)">
+  <ng-container *ngIf="imie.invalid && imie.touched">
+  <div class="valid-errors"
+  *ngIf="imie.errors.required">
+  To pole jest wymagane
+  </div>
+  <div class="valid-errors"
+  *ngIf="imie.errors.minlength">
+  Tekst jest za krótki
+  </div>
+  </ng-container>
+  </div>
+  <div>
+  <label>Nazwisko </label>
+  <input placeholder="Wprowadź nazwisko"
+  id="nazwisko"
+  type="text"
+  [required]="true"
+  [(ngModel)]="osoba.nazwisko"
+  name="nazwisko"
+  minlength="3"
+  #nazwisk="ngModel"
+  (input)="nazwiskoChanged(nazwisko)">
+  <ng-container *ngIf="nazwisko.invalid && nazwisko.touched">
+  <div class="valid-errors"
+  *ngIf="nazwisko.errors.required">
+  To pole jest wymagane
+  </div>
+  <div class="valid-errors"
+  *ngIf="nazwisko.errors.minlength">
+  Tekst jest za krótki
+  </div>
+  </ng-container>
+  </div>
+  <div>
+  <label>Email </label>
+  <input placeholder="Wprowadź email"
+  type="email"
+  [required]="true"
+  [(ngModel)]="osoba.email"
+  name="email"
+  email
+  #email="ngModel">
+  <ng-container *ngIf="email.invalid && email.touched">
+  <div class="valid-errors"
+  *ngIf="email.errors.required">
+  To pole jest wymagane
+  </div>
+  <div class="valid-errors"
+  *ngIf="email.errors.email">
+  Tekst nie jest adresem email
+  </div>
+  </ng-container>
+  </div>
+  <div>
+  <textarea placeholder="Opis..."
+  style="width: 240px;"
+  type="text-area"
+  [required]="true"
+  [(ngModel)]="osoba.opis"
+  name="opis"
+  #opis="ngModel">
+  <ng-container *ngIf="opis.invalid && opis.touched">
+  <div class="valid-errors"
+  *ngIf="opsi.errors.required">
+  To pole jest wymagane
+  </div>
+  <div class="valid-errors"
+  *ngIf="opis.errors.minlength">
+  Tekst jest za krótki
+  </div>
+  </ng-container>
+  </div>
+  <div>
+  </textarea>
+  </div>
+  <div>
+  <label>Wiek </label>
+  <select name="wiek"
+  title="Wiek osoby"
+  style="width: 177px;"
+  [required]="true"
+  [(ngModel)]="osoba.wiek">
+  <option *ngFor="let item of wiek"
+  [ngValue]="item">{{item}}</option>
+  </select>
+  </div>
+  <div>
+  <label>
+  <input name="checkbox"
+  [(ngModel)]="osoba.czyStudent"
+  type="checkbox"
+  data-toggle="toggle">Czy Student
+  </label>
+  </div>
+  <div>
+  <input type="radio"
+  value="male"
+  name="gender"
+  [(ngModel)]="osoba.gender"> Mężczyzna
+  <input type="radio"
+  value="female"
+  name="gender"
+  [(ngModel)]="osoba.gender"> Kobieta
+  </div>
+  <button type="submit" [disabled]="osobaForm.invalid">Send</button>
+  <button type="submit">Send</button>
+  <button type="reset">Reset</button>
+  <button type="button" (click)="sendForm(osobaForm)">Button</button>
+  <button (click)="sendForm(osobaForm)">Wyślij formularz</button>
+  </form>
+ </main>
+ 

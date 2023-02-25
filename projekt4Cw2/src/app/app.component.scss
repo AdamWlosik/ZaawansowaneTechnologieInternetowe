@@ -1,0 +1,19 @@
+main {
+    text-align: center;
+    border: 3px solid green;
+    margin: 20px;
+    padding: 20px;
+   } 
+   button {
+    margin-right: 20px;
+   } 
+   div {
+    margin-bottom: 15px;
+   } 
+   .ng-invalid.ng-touched:not(form) {
+    border: 2px solid red;
+   } 
+   .valid-errors {
+    color: red;
+    font-weight: 700;
+   } 

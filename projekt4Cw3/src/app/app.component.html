@@ -1,0 +1,77 @@
+<main> 
+  <h4>Formularz REACTIVE-FORM</h4>
+  <form [formGroup]="osobaForm"
+  (ngSubmit)="onSubmit()">
+  <div>
+  <label>Imię </label>
+  <input placeholder="Wprowadź imię"
+  type="text"
+  minlength="3"
+  formControlName="imie">
+  <div *ngIf="osobaForm.get('imie').errors?.minlength"
+  [ngStyle]="{ color: 'red' }">
+  Tekst jest za krótki! 
+  </div>
+  <div *ngIf="osobaForm.get('imie').errors?.required && osobaForm.get('imie').touched"
+  [ngStyle]="{ color: 'red' }">
+  To pole jest wymagane! 
+  </div>
+  </div>
+  <div>
+  <label>Nazwisko </label>
+  <input placeholder="Wprowadź nazwisko"
+  type="text"
+  [formControlName]="'nazwisko'">
+  </div>
+  <div>
+  <label>Email </label>
+  <input placeholder="Wprowadź email"
+  type="email"
+  [formControlName]="EMAIL">
+  <div *ngIf="osobaForm.get('email').errors?.required && osobaForm.get('email').touched"
+  [ngStyle]="{ color: 'red' }">
+  To pole jest wymagane! 
+  </div>
+  </div>
+  <div *ngIf="osobaForm.get('email').errors?.email && osobaForm.get('email').dirty"
+  [ngStyle]="{ color: 'red' }">
+  Zły adres email! 
+  </div>
+  <div>
+  <textarea placeholder="Opis..."
+  style="width: 240px;"
+  type="text-area"
+  formControlName="opis">
+  </textarea>
+  </div>
+  <div>
+  <label>Wiek </label>
+  <select formControlName="wiek"
+  title="Wiek osoby"
+  style="width: 177px;">
+  <option *ngFor="let item of wiek"
+  [ngValue]="item">{{item}}</option>
+  </select>
+  </div>
+  <div>
+  <label>
+  <input formControlName="checkbox"
+  type="checkbox"
+  formControlName="czyStudent">Czy Student
+  </label>
+  </div>
+  <div>
+  <label for="gender">Jesteś Mężczyzną? </label> <br>
+  <input type="radio"
+  [value]="true"
+  formControlName="gender"> Mężczyzna
+  <input type="radio"
+  [value]="false"
+  formControlName="gender"> Kobieta
+  </div>
+  <button type="submit">Send</button>
+  <button type="submit"
+  [disabled]="osobaForm.invalid">Send</button>//
+  <button type="reset">Reset</button>
+  </form>
+ </main>

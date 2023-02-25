@@ -1,0 +1,71 @@
+<app-child1> 
+  Wprowadzony tekst dzięki ng-content, <br>
+  między znaczniki componentu wyswietlanego <br>
+  {{ tekstWZmiennej }} <br>
+  {{tablica }} <br>
+  <app-child2></app-child2> 
+ </app-child1> 
+
+ <main>
+  <h4>Formularz TEMPLATE-DRIVEN</h4>
+  <form>
+  <p>
+  <label>Imię </label>
+  <input placeholder="Wprowadź imię"
+  type="text"
+  [(ngModel)]="osoba.imie"
+  name="imie">
+  </p>
+  <p>
+  <label>Nazwisko </label>
+  <input placeholder="Wprowadź nazwisko"
+  type="text"
+  [(ngModel)]="osoba.nazwisko"
+  name="nazwisko">
+  </p>
+  <p>
+  <label>Email </label>
+  <input placeholder="Wprowadź email"
+  type="text"
+  [(ngModel)]="osoba.emial"
+  name="emial">
+  </p>
+  <p>
+  <textarea placeholder="Opis..."
+  style="width: 240px;"
+  type="text-area"
+  [(ngModel)]="osoba.opis"
+  name="opis">
+  </textarea>
+  </p>
+  <p>
+  <label>Wiek </label>
+  <select name="wiek"
+  title="Wiek osoby"
+  style="width: 177px;"
+  [(ngModel)]="osoba.wiek">
+  <option *ngFor="let item of wiek"
+  [ngValue]="item">{{item}}</option>
+  </select>
+  </p>
+  <p class="checkbox">
+  <label>
+  <input name="checkbox"
+  [(ngModel)]="osoba.czyStudent"
+  type="checkbox"
+  data-toggle="toggle">Czy Student
+  </label>
+  </p>
+  <p>
+  <input type="radio"
+  value="male"
+  name="gender"
+  [(ngModel)]="osoba.gender"> Mężczyzna
+  <input type="radio"
+  value="female"
+  name="gender"
+  [(ngModel)]="osoba.gender"> Kobieta
+  </p>
+  <button (click)="sendForm()">Wyślij formularz</button>
+  </form>
+ </main> 
